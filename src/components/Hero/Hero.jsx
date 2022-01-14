@@ -65,6 +65,7 @@ export default function Hero() {
               fontWeight={"normal"}
               px={6}
               colorScheme={"red"}
+              color={"white"}
               bg={"red.400"}
               _hover={{ bg: "red.500" }}
             >

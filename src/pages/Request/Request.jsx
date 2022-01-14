@@ -16,6 +16,7 @@ import {
   Select,
 } from "@chakra-ui/react";
 import { Helmet } from "react-helmet";
+import { useToast } from "@chakra-ui/react";
 
 const avatars = [
   {
@@ -41,6 +42,7 @@ const avatars = [
 ];
 
 export default function Request() {
+  const toast = useToast();
   return (
     <Box position={"relative"}>
       <Helmet>
@@ -188,6 +190,15 @@ export default function Request() {
               </Select>
             </Stack>
             <Button
+              onClick={() =>
+                toast({
+                  title: "Account created.",
+                  description: "We've created your account for you.",
+                  status: "success",
+                  duration: 9000,
+                  isClosable: true,
+                })
+              }
               fontFamily={"heading"}
               mt={8}
               w={"full"}
@@ -201,7 +212,6 @@ export default function Request() {
               Submit
             </Button>
           </Box>
-          form
         </Stack>
       </Container>
       <Blur
