@@ -1,5 +1,7 @@
 import React from "react";
-import { useMediaQuery } from '@chakra-ui/react'
+import { useMediaQuery } from "@chakra-ui/react";
+import { AddIcon } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
 import {
   chakra,
   Box,
@@ -17,9 +19,10 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { Logo } from "@choc-ui/logo";
 
 export default function Gslr() {
+  const navigate = useNavigate();
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();
-  const [isLargerThan1280] = useMediaQuery('(min-width: 780px)')
+  const [isLargerThan1280] = useMediaQuery("(min-width: 780px)");
   return (
     <React.Fragment>
       <chakra.header
@@ -31,16 +34,23 @@ export default function Gslr() {
       >
         <Flex alignItems="center" justifyContent="space-between" mx="auto">
           <Flex>
-            <chakra.a
-              href="/"
+            <chakra.p
+              cursor="pointer"
+              onClick={() => navigate("/")}
               title="Choc Home Page"
               display="flex"
               alignItems="center"
             >
               <Logo />
               <VisuallyHidden>Choc</VisuallyHidden>
-            </chakra.a>
-            <chakra.h1 fontSize="xl" fontWeight="medium" ml="2">
+            </chakra.p>
+            <chakra.h1
+              cursor="pointer"
+              onClick={() => navigate("/")}
+              fontSize="xl"
+              fontWeight="medium"
+              ml="2"
+            >
               Choc
             </chakra.h1>
           </Flex>
@@ -57,7 +67,12 @@ export default function Gslr() {
               <Button variant="ghost">Kannada</Button>
               <Button variant="ghost">Bengali</Button>
             </HStack>
-            <Button colorScheme="brand" size="sm">
+            <Button
+              onClick={() => navigate("/request")}
+              colorScheme="brand"
+              size="sm"
+              rightIcon={<AddIcon />}
+            >
               Request Lyrics
             </Button>
             <Box display={{ base: "inline-flex", md: "none" }}>

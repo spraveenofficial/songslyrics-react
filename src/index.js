@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-
+import "@fontsource/poppins";
+// import theme from './theme'
 import {
   ChakraProvider,
   extendTheme,
@@ -23,7 +24,7 @@ const colors = {
   },
 };
 const config = {
-  initialColorMode: "dark",
+  initialColorMode: "light",
   useSystemColorMode: false,
 };
 
@@ -32,7 +33,7 @@ const theme = extendTheme({
   colors,
   config,
   fonts: {
-    body: `Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`,
+    body: "Poppins",
     heading: "Poppins",
   },
   fontWeights: {

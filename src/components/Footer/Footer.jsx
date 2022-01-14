@@ -9,7 +9,7 @@ import {
   VisuallyHidden,
 } from "@chakra-ui/react";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
-//   import { ReactNode } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const Logo = (props) => {
   return (
@@ -56,9 +56,10 @@ const SocialButton = ({ children, label, href }) => {
 };
 
 export default function SmallCentered() {
+  const navigate = useNavigate();
   return (
     <Box
-    //   bg={useColorModeValue("gray.50", "gray.900")}
+      //   bg={useColorModeValue("gray.50", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
     >
       <Container
@@ -71,10 +72,10 @@ export default function SmallCentered() {
       >
         <Logo />
         <Stack direction={"row"} spacing={6}>
-          <Link href={"#"}>Home</Link>
-          <Link href={"#"}>About</Link>
-          <Link href={"#"}>Blog</Link>
-          <Link href={"#"}>Contact</Link>
+          <Link onClick={() => navigate("/")}>Home</Link>
+          <Link onClick={() => navigate("/about")}>About</Link>
+          <Link onClick={() => navigate("/disclaimer")}>Disclaimer</Link>
+          <Link onClick={() => navigate("/contact")}>Contact</Link>
         </Stack>
       </Container>
 
@@ -92,7 +93,7 @@ export default function SmallCentered() {
           justify={{ base: "center", md: "space-between" }}
           align={{ base: "center", md: "center" }}
         >
-          <Text>© 2020 Chakra Templates. All rights reserved</Text>
+          <Text>© 2022 SongsLyrics. All rights reserved</Text>
           <Stack direction={"row"} spacing={6}>
             <SocialButton label={"Twitter"} href={"#"}>
               <FaTwitter />

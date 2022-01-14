@@ -13,6 +13,7 @@ import {
   useBreakpointValue,
   IconProps,
   Icon,
+  Select,
 } from "@chakra-ui/react";
 
 const avatars = [
@@ -53,15 +54,15 @@ export default function JoinOurTeam() {
             lineHeight={1.1}
             fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}
           >
-            Senior web designers{" "}
+            Request{" "}
             <Text
               as={"span"}
               bgGradient="linear(to-r, red.400,pink.400)"
               bgClip="text"
             >
-              &
+              your
             </Text>{" "}
-            Full-Stack Developers
+            Favorite Songs Now.
           </Heading>
           <Stack direction={"row"} spacing={4} align={"center"}>
             <AvatarGroup>
@@ -70,7 +71,7 @@ export default function JoinOurTeam() {
                   key={avatar.name}
                   name={avatar.name}
                   src={avatar.url}
-                //   size={useBreakpointValue({ base: "md", md: "lg" })}
+                  //   size={useBreakpointValue({ base: "md", md: "lg" })}
                   position={"relative"}
                   zIndex={2}
                   _before={{
@@ -130,9 +131,9 @@ export default function JoinOurTeam() {
             <Heading
               color={"gray.800"}
               lineHeight={1.1}
-              fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
+              fontSize={{ base: "2xl", sm: "2xl", md: "3xl" }}
             >
-              Join our team
+              Request your favorite Lyrics
               <Text
                 as={"span"}
                 bgGradient="linear(to-r, red.400,pink.400)"
@@ -142,14 +143,15 @@ export default function JoinOurTeam() {
               </Text>
             </Heading>
             <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-              We’re looking for amazing engineers just like you! Become a part
-              of our rockstar engineering team and skyrocket your career!
+              We are here to provide you the wholesome experience to our users.
+              Please request your Favorite Genre, Songs, Albums here. Once we
+              recieve your request we will add it instantly.
             </Text>
           </Stack>
           <Box as={"form"} mt={10}>
             <Stack spacing={4}>
               <Input
-                placeholder="Firstname"
+                placeholder="Enter Your Full Name"
                 bg={"gray.100"}
                 border={0}
                 color={"gray.500"}
@@ -158,7 +160,7 @@ export default function JoinOurTeam() {
                 }}
               />
               <Input
-                placeholder="firstname@lastname.io"
+                placeholder="Enter Your Email Address"
                 bg={"gray.100"}
                 border={0}
                 color={"gray.500"}
@@ -166,18 +168,18 @@ export default function JoinOurTeam() {
                   color: "gray.500",
                 }}
               />
-              <Input
-                placeholder="+1 (___) __-___-___"
+              <Select
                 bg={"gray.100"}
                 border={0}
                 color={"gray.500"}
                 _placeholder={{
                   color: "gray.500",
                 }}
-              />
-              <Button fontFamily={"heading"} bg={"gray.200"} color={"gray.800"}>
-                Upload CV
-              </Button>
+                placeholder="Select Request Type"
+              >
+                <option value="option1">Song</option>
+                <option value="option2">Album</option>
+              </Select>
             </Stack>
             <Button
               fontFamily={"heading"}
