@@ -1,83 +1,120 @@
-import React from "react";
-import { chakra, Box, Image, Flex, useColorModeValue } from "@chakra-ui/react";
+import {
+  Badge,
+  Button,
+  Center,
+  Flex,
+  Heading,
+  Image,
+  Link,
+  Stack,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react';
 
-const Card = () => {
+export default function Card() {
   return (
-    <Flex
-      bg={useColorModeValue("#F9FAFB", "gray.600")}
-      p={50}
-      w="full"
-      alignItems="center"
-      justifyContent="center"
-    >
-      <Box
-        maxW="xs"
-        mx="auto"
-        bg={useColorModeValue("white", "gray.800")}
-        shadow="lg"
-        rounded="lg"
-      >
-        <Box px={4} py={2}>
-          <chakra.h1
-            color={useColorModeValue("gray.800", "white")}
-            fontWeight="bold"
-            fontSize="3xl"
-            textTransform="uppercase"
-          >
-            NIKE AIR
-          </chakra.h1>
-          <chakra.p
-            mt={1}
-            fontSize="sm"
-            color={useColorModeValue("gray.600", "gray.400")}
-          >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos
-            quidem sequi illum facere recusandae voluptatibus
-          </chakra.p>
-        </Box>
-
-        <Image
-          h={48}
-          w="full"
-          fit="cover"
-          mt={2}
-          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=320&q=80"
-          alt="NIKE AIR"
-        />
-
-        <Flex
-          alignItems="center"
-          justifyContent="space-between"
-          px={4}
-          py={2}
-          bg="gray.900"
-          roundedBottom="lg"
-        >
-          <chakra.h1 color="white" fontWeight="bold" fontSize="lg">
-            $129
-          </chakra.h1>
-          <chakra.button
-            px={2}
-            py={1}
-            bg="white"
-            fontSize="xs"
-            color="gray.900"
-            fontWeight="bold"
-            rounded="lg"
-            textTransform="uppercase"
-            _hover={{
-              bg: "gray.200",
-            }}
-            _focus={{
-              bg: "gray.400",
-            }}
-          >
-            Add to cart
-          </chakra.button>
+    <Center py={6}>
+      <Stack
+        borderWidth="1px"
+        borderRadius="lg"
+        w={{ sm: '100%', md: '540px' }}
+        height={{ sm: '476px', md: '20rem' }}
+        direction={{ base: 'column', md: 'row' }}
+        bg={useColorModeValue('white', 'gray.900')}
+        boxShadow={'2xl'}
+        padding={4}>
+        <Flex flex={1} bg="blue.200">
+          <Image
+            objectFit="cover"
+            boxSize="100%"
+            src={
+              'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ'
+            }
+          />
         </Flex>
-      </Box>
-    </Flex>
-  );
-};
+        <Stack
+          flex={1}
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          p={1}
+          pt={2}>
+          <Heading fontSize={'2xl'} fontFamily={'body'}>
+            Lindsey James
+          </Heading>
+          <Text fontWeight={600} color={'gray.500'} size="sm" mb={4}>
+            @lindsey_jam3s
+          </Text>
+          <Text
+            textAlign={'center'}
+            color={useColorModeValue('gray.700', 'gray.400')}
+            px={3}>
+            Actress, musician, songwriter and artist. PM for work inquires or
+            <Link href={'#'} color={'blue.400'}>
+              #tag
+            </Link>
+            me in your posts
+          </Text>
+          <Stack align={'center'} justify={'center'} direction={'row'} mt={6}>
+            <Badge
+              px={2}
+              py={1}
+              bg={useColorModeValue('gray.50', 'gray.800')}
+              fontWeight={'400'}>
+              #art
+            </Badge>
+            <Badge
+              px={2}
+              py={1}
+              bg={useColorModeValue('gray.50', 'gray.800')}
+              fontWeight={'400'}>
+              #photography
+            </Badge>
+            <Badge
+              px={2}
+              py={1}
+              bg={useColorModeValue('gray.50', 'gray.800')}
+              fontWeight={'400'}>
+              #music
+            </Badge>
+          </Stack>
 
-export default Card;
+          <Stack
+            width={'100%'}
+            mt={'2rem'}
+            direction={'row'}
+            padding={2}
+            justifyContent={'space-between'}
+            alignItems={'center'}>
+            <Button
+              flex={1}
+              fontSize={'sm'}
+              rounded={'full'}
+              _focus={{
+                bg: 'gray.200',
+              }}>
+              Message
+            </Button>
+            <Button
+              flex={1}
+              fontSize={'sm'}
+              rounded={'full'}
+              bg={'blue.400'}
+              color={'white'}
+              boxShadow={
+                '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
+              }
+              _hover={{
+                bg: 'blue.500',
+              }}
+              _focus={{
+                bg: 'blue.500',
+              }}>
+              Follow
+            </Button>
+          </Stack>
+        </Stack>
+      </Stack>
+    </Center>
+  );
+}

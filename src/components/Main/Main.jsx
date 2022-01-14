@@ -13,16 +13,19 @@ import {
   IconProps,
   useColorModeValue,
 } from "@chakra-ui/react";
+import "../../index.css";
 import Card from "../GenreCard/Card";
 const Main = () => {
   return (
-    <Container maxW={"7xl"}>
-      <Flex flex="auto">
+    <Container maxW={"7xl"} bg="red">
+      <div className="flexing">
         <Card />
         <Card />
         <Card />
         <Card />
-      </Flex>
+      </div>
+      {/* <Flex flex="auto">
+      </Flex> */}
     </Container>
   );
 };
