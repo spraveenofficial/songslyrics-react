@@ -6,8 +6,6 @@ import {
   Stack,
   Text,
   useColorModeValue,
-  VisuallyHidden,
-  chakra,
 } from "@chakra-ui/react";
 
 const Logo = (props) => {

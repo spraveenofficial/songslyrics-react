@@ -11,7 +11,6 @@ import {
   Avatar,
   AvatarGroup,
   useBreakpointValue,
-  IconProps,
   Icon,
   Select,
 } from "@chakra-ui/react";
@@ -192,10 +191,10 @@ export default function Request() {
             <Button
               onClick={() =>
                 toast({
-                  title: "Account created.",
-                  description: "We've created your account for you.",
+                  title: "Requested Successfully.",
+                  description: "We've received your request.",
                   status: "success",
-                  duration: 9000,
+                  duration: 5000,
                   isClosable: true,
                 })
               }
