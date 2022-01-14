@@ -10,6 +10,7 @@ import genreBG5 from "../../assets/svg/5.svg";
 import genreBG6 from "../../assets/svg/6.svg";
 import genreBG7 from "../../assets/svg/7.svg";
 import genreBG8 from "../../assets/svg/8.svg";
+import Testinomials from "../Testimonials/Testimonials";
 const Main = () => {
   const socialVariants = {
     hidden: { opacity: 0 },
@@ -42,7 +43,7 @@ const Main = () => {
       name: "Hindi",
       type: "",
       cover: genreBG2,
-      icon: "javascript",
+      icon: "हिन्दी",
       svg_icon: true,
       icon_position: "top right",
       info_position: "bottom left",
@@ -52,7 +53,7 @@ const Main = () => {
       name: "English",
       type: "",
       cover: genreBG1,
-      icon: "python",
+      icon: "English",
       svg_icon: true,
       icon_position: "top left",
       info_position: "bottom right",
@@ -62,7 +63,7 @@ const Main = () => {
       name: "Bhakti",
       type: "",
       cover: genreBG3,
-      icon: "sass",
+      icon: "भक्ति",
       svg_icon: true,
       icon_position: "bottom left",
       info_position: "top right",
@@ -72,7 +73,7 @@ const Main = () => {
       name: "Gujarati",
       type: "",
       cover: genreBG4,
-      icon: "java",
+      icon: "ગુજરાતી",
       svg_icon: true,
       icon_position: "bottom right",
       info_position: "top left",
@@ -82,76 +83,76 @@ const Main = () => {
       name: "Kannada",
       type: "",
       cover: genreBG5,
-      icon: "node",
+      icon: "ಕನ್ನಡ",
       svg_icon: true,
       icon_position: "top right",
       info_position: "bottom left",
       path: "/genre/kannada",
     },
     {
-      name: "Bhojpuri",
-      type: "",
-      cover: genreBG5,
-      icon: "node",
-      svg_icon: true,
-      icon_position: "top right",
-      info_position: "bottom left",
-      path: "/genre/bhojpuri",
-    },
-    {
-      name: "Haryanvi",
-      type: "",
-      cover: genreBG6,
-      icon: "ri-reactjs-fill",
-      icon_position: "top left",
-      info_position: "bottom right",
-      path: "/genre/haryanvi",
-    },
-    {
       name: "Malayalam",
       type: "",
       cover: genreBG8,
-      icon: "framermotion",
+      icon: "മലയാളം",
       svg_icon: true,
       icon_position: "bottom right",
       info_position: "top left",
       path: "/genre/malayalam",
     },
     {
-      name: "Marathi",
+      name: "Haryanvi",
       type: "",
-      cover: genreBG7,
-      icon: "mongoDB",
-      svg_icon: true,
+      cover: genreBG6,
+      icon: "हरियाणवी",
       icon_position: "top left",
       info_position: "bottom right",
-      path: "/genre/marathi",
+      path: "/genre/haryanvi",
+    },
+    {
+      name: "Bhojpuri",
+      type: "",
+      cover: genreBG5,
+      icon: "भोजपुरी",
+      svg_icon: true,
+      icon_position: "top right",
+      info_position: "bottom left",
+      path: "/genre/bhojpuri",
     },
     {
       name: "Punjabi",
       type: "",
       cover: genreBG4,
-      icon: "cprogramLogo",
+      icon: "ਪੰਜਾਬੀ",
       svg_icon: true,
       icon_position: "bottom right",
       info_position: "top left",
       path: "/genre/punjabi",
     },
     {
-      name: "Sanskrit",
+      name: "Marathi",
       type: "",
-      cover: genreBG2,
-      icon: "cpluslogo",
+      cover: genreBG7,
+      icon: "मराठी",
       svg_icon: true,
       icon_position: "top left",
       info_position: "bottom right",
+      path: "/genre/marathi",
+    },
+    {
+      name: "Sanskrit",
+      type: "",
+      cover: genreBG2,
+      icon: "संस्कृत",
+      svg_icon: true,
+      icon_position: "top right",
+      info_position: "bottom left",
       path: "/genre/sanskrit",
     },
     {
       name: "Tamil",
       type: "",
       cover: genreBG3,
-      icon: "gitLogo",
+      icon: "தமிழ்",
       svg_icon: true,
       icon_position: "bottom left",
       info_position: "top right",
@@ -159,14 +160,21 @@ const Main = () => {
     },
   ];
   return (
-    <Container maxW={"7xl"} bg="inherit">
+    <Container
+      marginTop={"40px"}
+      marginBottom={"40px"}
+      maxW={"7xl"}
+      bg="inherit"
+      p={"10"}
+    >
       <chakra.h1
         fontWeight={900}
         fontSize={{ base: "2xl", md: "3xl" }}
         textAlign={"center"}
-        padding={"20px"}
+        // padding={"20px"}
+        marginBottom={"10"}
       >
-        Categories we Have
+        Categories We Have
       </chakra.h1>
       <section id="section420" className="skills_section">
         <div className="container">
@@ -194,6 +202,7 @@ const Main = () => {
           </motion.div>
         </div>
       </section>
+      <Testinomials />
     </Container>
   );
 };

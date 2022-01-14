@@ -1,15 +1,14 @@
 import {
   Box,
-  chakra,
   Container,
   Link,
+  SimpleGrid,
   Stack,
   Text,
   useColorModeValue,
   VisuallyHidden,
+  chakra,
 } from "@chakra-ui/react";
-import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 
 const Logo = (props) => {
   return (
@@ -31,80 +30,84 @@ const Logo = (props) => {
   );
 };
 
-const SocialButton = ({ children, label, href }) => {
+const ListHeader = ({ children }) => {
   return (
-    <chakra.button
-      bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
-      rounded={"full"}
-      w={8}
-      h={8}
-      cursor={"pointer"}
-      as={"a"}
-      href={href}
-      display={"inline-flex"}
-      alignItems={"center"}
-      justifyContent={"center"}
-      transition={"background 0.3s ease"}
-      _hover={{
-        bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200"),
-      }}
-    >
-      <VisuallyHidden>{label}</VisuallyHidden>
+    <Text fontWeight={"500"} fontSize={"lg"} mb={2}>
       {children}
-    </chakra.button>
+    </Text>
   );
 };
 
-export default function SmallCentered() {
-  const navigate = useNavigate();
+export default function LargeWithLogoLeft() {
   return (
     <Box
-      //   bg={useColorModeValue("gray.50", "gray.900")}
+      // borderTop="2px"
+      // borderColor={useColorModeValue("gray.50", "gray.900")}
+      // bg={useColorModeValue("gray.50", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
     >
-      <Container
-        as={Stack}
-        maxW={"6xl"}
-        py={4}
-        spacing={4}
-        justify={"center"}
-        align={"center"}
-      >
-        <Logo />
-        <Stack direction={"row"} spacing={6}>
-          <Link onClick={() => navigate("/")}>Home</Link>
-          <Link onClick={() => navigate("/about")}>About</Link>
-          <Link onClick={() => navigate("/disclaimer")}>Disclaimer</Link>
-          <Link onClick={() => navigate("/contact")}>Contact</Link>
-        </Stack>
+      <Container as={Stack} maxW={"6xl"} py={10}>
+        <SimpleGrid
+          templateColumns={{ sm: "1fr 1fr", md: "2fr 1fr 1fr 1fr 1fr" }}
+          spacing={8}
+        >
+          <Stack spacing={6}>
+            <Box>
+              <Logo color={useColorModeValue("gray.700", "white")} />
+            </Box>
+            <Text fontSize={"sm"}>© 2022 SongsLyrics. All rights reserved</Text>
+          </Stack>
+          <Stack align={"flex-start"}>
+            <ListHeader>Important Links</ListHeader>
+            <Link href={"#"}>Home</Link>
+            <Link href={"#"}>About</Link>
+            <Link href={"#"}>Contact</Link>
+            <Link href={"#"}>Disclaimer</Link>
+            <Link href={"#"}>Term of Uses</Link>
+          </Stack>
+          <Stack align={"flex-start"}>
+            <ListHeader>Genres</ListHeader>
+            <Link href={"#"}>Hindi</Link>
+            <Link href={"#"}>English</Link>
+            <Link href={"#"}>Bhojpuri</Link>
+            <Link href={"#"}>Tamil</Link>
+            <Link href={"#"}>Kannada</Link>
+          </Stack>
+          <Stack align={"flex-start"}>
+            <ListHeader>Artists</ListHeader>
+            <Link href={"#"}>Sonu Nigam</Link>
+            <Link href={"#"}>Lata Mangeshkar</Link>
+            <Link href={"#"}>Jubin Nautiyal</Link>
+            <Link href={"#"}>Arijit Singh</Link>
+            <Link href={"#"}>Sidhu Moose Wala</Link>
+          </Stack>
+          <Stack align={"flex-start"}>
+            <ListHeader>Follow Us</ListHeader>
+            <Link href={"#"}>Facebook</Link>
+            <Link href={"#"}>Twitter</Link>
+            <Link href={"#"}>Dribbble</Link>
+            <Link href={"#"}>Instagram</Link>
+            <Link href={"#"}>LinkedIn</Link>
+          </Stack>
+        </SimpleGrid>
       </Container>
-
       <Box
         borderTopWidth={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.700")}
       >
         <Container
-          as={Stack}
-          maxW={"6xl"}
+          // as={Stack}
+          // maxW={"6xl"}
           py={4}
-          direction={{ base: "column", md: "row" }}
-          spacing={4}
-          justify={{ base: "center", md: "space-between" }}
-          align={{ base: "center", md: "center" }}
+          // direction={{ base: "column", md: "row" }}
+          // spacing={4}
+          // justify={{ md: "space-between" }}
+          align={{ md: "center" }}
         >
-          <Text>© 2022 SongsLyrics. All rights reserved</Text>
-          <Stack direction={"row"} spacing={6}>
-            <SocialButton label={"Twitter"} href={"#"}>
-              <FaTwitter />
-            </SocialButton>
-            <SocialButton label={"YouTube"} href={"#"}>
-              <FaYoutube />
-            </SocialButton>
-            <SocialButton label={"Instagram"} href={"#"}>
-              <FaInstagram />
-            </SocialButton>
-          </Stack>
+          <Text align={"center"}>
+            © 2020 Chakra Templates. All rights reserved
+          </Text>
         </Container>
       </Box>
     </Box>

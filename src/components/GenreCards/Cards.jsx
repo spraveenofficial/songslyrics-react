@@ -8,7 +8,7 @@ export default function GenreCard({
   infoPos,
   icoPos,
   path,
-  rawsvg = false,
+  rawsvg = true,
 }) {
   const navigate = useNavigate();
   return (
@@ -21,8 +21,9 @@ export default function GenreCard({
       <img className="cover" src={cover} alt="cover" />
 
       {rawsvg ? (
-        <img src={objIco} className={`${icoPos} objSvg`} alt={name} />
+        <p className={`${icoPos} objSvg`}>{objIco}</p>
       ) : (
+        // <img src={objIco} className={`${icoPos} objSvg`} alt={name} />
         <i className={`${objIco} ${icoPos} objIcon`}></i>
       )}
 
