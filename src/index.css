@@ -1,5 +1,13 @@
 .flexing {
   display: flex;
   flex-wrap: wrap;
+  /* background: blue; */
   justify-content: space-between;
+}
+
+
+@media(max-width:768px){
+    .flexing > *{
+        width: 100%;
+    }
 }

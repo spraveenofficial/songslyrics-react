@@ -17,7 +17,7 @@ import "../../index.css";
 import Card from "../GenreCard/Card";
 const Main = () => {
   return (
-    <Container maxW={"7xl"} bg="red">
+    <Container maxW={"7xl"} bg="inherit">
       <div className="flexing">
         <Card />
         <Card />
