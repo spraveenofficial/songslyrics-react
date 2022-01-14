@@ -15,6 +15,7 @@ import {
   Icon,
   Select,
 } from "@chakra-ui/react";
+import { Helmet } from "react-helmet";
 
 const avatars = [
   {
@@ -39,9 +40,14 @@ const avatars = [
   },
 ];
 
-export default function JoinOurTeam() {
+export default function Request() {
   return (
     <Box position={"relative"}>
+      <Helmet>
+        <title>Request your songs - SongsLyrics</title>
+        <meta name="description" content="This is the home page." />
+      </Helmet>
+      ;
       <Container
         as={SimpleGrid}
         maxW={"7xl"}

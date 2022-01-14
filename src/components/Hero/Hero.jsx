@@ -43,7 +43,7 @@ export default function Hero() {
                 zIndex: -100,
               }}
             >
-              Write once,
+              SongsLyrics,
             </Text>
             <br />
             <Text as={"span"} color={"red.400"}>
@@ -51,9 +51,9 @@ export default function Hero() {
             </Text>
           </Heading>
           <Text color={"gray.500"}>
-            Snippy is a rich coding snippets app that lets you create your own
-            code snippets, categorize them, and even sync them in the cloud so
-            you can use them anywhere. All that is free!
+            SongsLyrics is one of the leading Lyrics providing Website. Users
+            get there favorite songs lyrics hassle-free. All that is totally
+            free.
           </Text>
           <Stack
             spacing={{ base: 4, sm: 6 }}
