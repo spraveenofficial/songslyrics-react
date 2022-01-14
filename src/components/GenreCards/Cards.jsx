@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.scss";
+import { useNavigate } from "react-router-dom";
 export default function GenreCard({
   cover,
   name,
@@ -7,10 +7,17 @@ export default function GenreCard({
   objIco,
   infoPos,
   icoPos,
+  path,
   rawsvg = false,
 }) {
+  const navigate = useNavigate();
   return (
-    <div className="mContainer">
+    <div
+      className="mContainer"
+      onClick={() => {
+        navigate(path);
+      }}
+    >
       <img className="cover" src={cover} alt="cover" />
 
       {rawsvg ? (

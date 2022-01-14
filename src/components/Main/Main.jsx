@@ -46,6 +46,7 @@ const Main = () => {
       svg_icon: true,
       icon_position: "top right",
       info_position: "bottom left",
+      path: "/genre/hindi",
     },
     {
       name: "English",
@@ -55,6 +56,7 @@ const Main = () => {
       svg_icon: true,
       icon_position: "top left",
       info_position: "bottom right",
+      path: "/genre/english",
     },
     {
       name: "Bhakti",
@@ -64,6 +66,7 @@ const Main = () => {
       svg_icon: true,
       icon_position: "bottom left",
       info_position: "top right",
+      path: "/genre/bhakti",
     },
     {
       name: "Gujarati",
@@ -73,6 +76,7 @@ const Main = () => {
       svg_icon: true,
       icon_position: "bottom right",
       info_position: "top left",
+      path: "/genre/gujrati",
     },
     {
       name: "Kannada",
@@ -82,6 +86,7 @@ const Main = () => {
       svg_icon: true,
       icon_position: "top right",
       info_position: "bottom left",
+      path: "/genre/kannada",
     },
     {
       name: "Bhojpuri",
@@ -91,6 +96,7 @@ const Main = () => {
       svg_icon: true,
       icon_position: "top right",
       info_position: "bottom left",
+      path: "/genre/bhojpuri",
     },
     {
       name: "Haryanvi",
@@ -99,6 +105,7 @@ const Main = () => {
       icon: "ri-reactjs-fill",
       icon_position: "top left",
       info_position: "bottom right",
+      path: "/genre/haryanvi",
     },
     {
       name: "Malayalam",
@@ -108,6 +115,7 @@ const Main = () => {
       svg_icon: true,
       icon_position: "bottom right",
       info_position: "top left",
+      path: "/genre/malayalam",
     },
     {
       name: "Marathi",
@@ -117,6 +125,7 @@ const Main = () => {
       svg_icon: true,
       icon_position: "top left",
       info_position: "bottom right",
+      path: "/genre/marathi",
     },
     {
       name: "Punjabi",
@@ -126,6 +135,7 @@ const Main = () => {
       svg_icon: true,
       icon_position: "bottom right",
       info_position: "top left",
+      path: "/genre/punjabi",
     },
     {
       name: "Sanskrit",
@@ -135,6 +145,7 @@ const Main = () => {
       svg_icon: true,
       icon_position: "top left",
       info_position: "bottom right",
+      path: "/genre/sanskrit",
     },
     {
       name: "Tamil",
@@ -144,6 +155,7 @@ const Main = () => {
       svg_icon: true,
       icon_position: "bottom left",
       info_position: "top right",
+      path: "/genre/tamil",
     },
   ];
   return (
@@ -175,6 +187,7 @@ const Main = () => {
                   name={item.name}
                   type={item.type}
                   rawsvg={item.svg_icon}
+                  path={item.path}
                 />
               </motion.div>
             ))}

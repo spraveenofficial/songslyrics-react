@@ -2,7 +2,6 @@ $card-Ttype: 500ms cubic-bezier(0.87, 0.07, 0.37, 0.97);
 
 #section420 {
   min-height: unset;
-  padding-top: 4rem;
 }
 .skills_section {
   .container {
@@ -11,15 +10,15 @@ $card-Ttype: 500ms cubic-bezier(0.87, 0.07, 0.37, 0.97);
     padding: 40px;
   }
   .grid {
+    width: 100%;
     $cardSize: 20rem;
     $borderRadius: 7px;
     $mContainerHeight: 37%;
     display: grid;
     grid-template-columns: repeat(auto-fit, $cardSize);
     place-content: center;
-    width: 100%;
+    // width: 100%;
     gap: 4rem;
-
     .mContainer {
       width: $cardSize;
       //height: calc(calc($cardSize / 16) * 9);
@@ -108,9 +107,15 @@ $card-Ttype: 500ms cubic-bezier(0.87, 0.07, 0.37, 0.97);
 }
 
 @media (max-width: 768px) {
+  .mContainer {
+    width: 100% !important;
+  }
   .skills_section {
-    .iContainer {
-      width: 100%;
+    .grid {
+      display: block;
+    }
+    .grid > div {
+      margin-bottom: 40px;
     }
   }
 }
