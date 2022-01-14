@@ -1,7 +1,8 @@
 import React from "react";
-import { useMediaQuery } from "@chakra-ui/react";
+import { useColorMode, useMediaQuery } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
+import { SunIcon, MoonIcon } from "@chakra-ui/icons";
 import {
   chakra,
   Box,
@@ -19,6 +20,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { Logo } from "@choc-ui/logo";
 
 export default function Gslr() {
+  const { colorMode, toggleColorMode } = useColorMode();
   const navigate = useNavigate();
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();
@@ -65,8 +67,23 @@ export default function Gslr() {
               <Button variant="ghost">English</Button>
               <Button variant="ghost">Tamil</Button>
               <Button variant="ghost">Kannada</Button>
-              <Button variant="ghost">Bengali</Button>
+              <Button
+                alignContent={"center"}
+                alignItems={"center"}
+                onClick={() => toggleColorMode()}
+                // variant="ghost"
+              >
+                {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+              </Button>
             </HStack>
+            <Button
+              marginRight={"25"}
+              // colorScheme="brand"
+              onClick={() => toggleColorMode()}
+              display={{ base: "block", md: "none" }}
+            >
+              {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+            </Button>
             <Button
               onClick={() => navigate("/request")}
               colorScheme="brand"

@@ -39,6 +39,7 @@ const ListHeader = ({ children }) => {
 };
 
 export default function LargeWithLogoLeft() {
+  const year = new Date();
   return (
     <Box
       // borderTop="2px"
@@ -106,7 +107,7 @@ export default function LargeWithLogoLeft() {
           align={{ md: "center" }}
         >
           <Text align={"center"}>
-            © 2020 Chakra Templates. All rights reserved
+            © {year.getFullYear()} SongsLyrics. All rights reserved
           </Text>
         </Container>
       </Box>
