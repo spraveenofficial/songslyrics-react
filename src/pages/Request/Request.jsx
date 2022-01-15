@@ -16,7 +16,22 @@ import {
 } from "@chakra-ui/react";
 import { Helmet } from "react-helmet";
 import { useToast } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
+const variants = {
+  initial: {
+    opacity: 0,
+    y: 8,
+  },
+  enter: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.9,
+      ease: [0.61, 1, 0.88, 1],
+    },
+  },
+};
 const avatars = [
   {
     name: "Ryan Florence",
@@ -43,183 +58,188 @@ const avatars = [
 export default function Request() {
   const toast = useToast();
   return (
-    <Box position={"relative"}>
-      <Helmet>
-        <title>Request your songs - SongsLyrics</title>
-        <meta name="description" content="This is the home page." />
-      </Helmet>
-      ;
-      <Container
-        as={SimpleGrid}
-        maxW={"7xl"}
-        columns={{ base: 1, md: 2 }}
-        spacing={{ base: 10, lg: 32 }}
-        py={{ base: 10, sm: 20, lg: 32 }}
-      >
-        <Stack spacing={{ base: 10, md: 20 }}>
-          <Heading
-            lineHeight={1.1}
-            fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}
-          >
-            Request{" "}
-            <Text
-              as={"span"}
-              bgGradient="linear(to-r, red.400,pink.400)"
-              bgClip="text"
-            >
-              your
-            </Text>{" "}
-            Favorite Songs Now.
-          </Heading>
-          <Stack direction={"row"} spacing={4} align={"center"}>
-            <AvatarGroup>
-              {avatars.map((avatar) => (
-                <Avatar
-                  key={avatar.name}
-                  name={avatar.name}
-                  src={avatar.url}
-                  //   size={useBreakpointValue({ base: "md", md: "lg" })}
-                  position={"relative"}
-                  zIndex={2}
-                  _before={{
-                    content: '""',
-                    width: "full",
-                    height: "full",
-                    rounded: "full",
-                    transform: "scale(1.125)",
-                    bgGradient: "linear(to-bl, red.400,pink.400)",
-                    position: "absolute",
-                    zIndex: -1,
-                    top: 0,
-                    left: 0,
-                  }}
-                />
-              ))}
-            </AvatarGroup>
-            <Text fontFamily={"heading"} fontSize={{ base: "4xl", md: "6xl" }}>
-              +
-            </Text>
-            <Flex
-              align={"center"}
-              justify={"center"}
-              fontFamily={"heading"}
-              fontSize={{ base: "sm", md: "lg" }}
-              bg={"gray.800"}
-              color={"white"}
-              rounded={"full"}
-              width={useBreakpointValue({ base: "44px", md: "60px" })}
-              height={useBreakpointValue({ base: "44px", md: "60px" })}
-              position={"relative"}
-              _before={{
-                content: '""',
-                width: "full",
-                height: "full",
-                rounded: "full",
-                transform: "scale(1.125)",
-                bgGradient: "linear(to-bl, orange.400,yellow.400)",
-                position: "absolute",
-                zIndex: -1,
-                top: 0,
-                left: 0,
-              }}
-            >
-              YOU
-            </Flex>
-          </Stack>
-        </Stack>
-        <Stack
-          bg={"gray.50"}
-          rounded={"xl"}
-          p={{ base: 4, sm: 6, md: 8 }}
-          spacing={{ base: 8 }}
-          maxW={{ lg: "lg" }}
+    <motion.div initial="initial" animate="enter" variants={variants}>
+      <Box position={"relative"}>
+        <Helmet>
+          <title>Request your songs - SongsLyrics</title>
+          <meta name="description" content="This is the home page." />
+        </Helmet>
+        ;
+        <Container
+          as={SimpleGrid}
+          maxW={"7xl"}
+          columns={{ base: 1, md: 2 }}
+          spacing={{ base: 10, lg: 32 }}
+          py={{ base: 10, sm: 20, lg: 32 }}
         >
-          <Stack spacing={4}>
+          <Stack spacing={{ base: 10, md: 20 }}>
             <Heading
-              color={"gray.800"}
               lineHeight={1.1}
-              fontSize={{ base: "2xl", sm: "2xl", md: "3xl" }}
+              fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}
             >
-              Request your favorite Lyrics
+              Request{" "}
               <Text
                 as={"span"}
                 bgGradient="linear(to-r, red.400,pink.400)"
                 bgClip="text"
               >
-                !
-              </Text>
+                your
+              </Text>{" "}
+              Favorite Songs Now.
             </Heading>
-            <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-              We are here to provide you the wholesome experience to our users.
-              Please request your Favorite Genre, Songs, Albums here. Once we
-              recieve your request we will add it instantly.
-            </Text>
-          </Stack>
-          <Box as={"form"} mt={10}>
-            <Stack spacing={4}>
-              <Input
-                placeholder="Enter Your Full Name"
-                bg={"gray.100"}
-                border={0}
-                color={"gray.500"}
-                _placeholder={{
-                  color: "gray.500",
-                }}
-              />
-              <Input
-                placeholder="Enter Your Email Address"
-                bg={"gray.100"}
-                border={0}
-                color={"gray.500"}
-                _placeholder={{
-                  color: "gray.500",
-                }}
-              />
-              <Select
-                bg={"gray.100"}
-                border={0}
-                color={"gray.500"}
-                _placeholder={{
-                  color: "gray.500",
-                }}
-                placeholder="Select Request Type"
+            <Stack direction={"row"} spacing={4} align={"center"}>
+              <AvatarGroup>
+                {avatars.map((avatar) => (
+                  <Avatar
+                    key={avatar.name}
+                    name={avatar.name}
+                    src={avatar.url}
+                    //   size={useBreakpointValue({ base: "md", md: "lg" })}
+                    position={"relative"}
+                    zIndex={2}
+                    _before={{
+                      content: '""',
+                      width: "full",
+                      height: "full",
+                      rounded: "full",
+                      transform: "scale(1.125)",
+                      bgGradient: "linear(to-bl, red.400,pink.400)",
+                      position: "absolute",
+                      zIndex: -1,
+                      top: 0,
+                      left: 0,
+                    }}
+                  />
+                ))}
+              </AvatarGroup>
+              <Text
+                fontFamily={"heading"}
+                fontSize={{ base: "4xl", md: "6xl" }}
               >
-                <option value="option1">Song</option>
-                <option value="option2">Album</option>
-              </Select>
+                +
+              </Text>
+              <Flex
+                align={"center"}
+                justify={"center"}
+                fontFamily={"heading"}
+                fontSize={{ base: "sm", md: "lg" }}
+                bg={"gray.800"}
+                color={"white"}
+                rounded={"full"}
+                width={useBreakpointValue({ base: "44px", md: "60px" })}
+                height={useBreakpointValue({ base: "44px", md: "60px" })}
+                position={"relative"}
+                _before={{
+                  content: '""',
+                  width: "full",
+                  height: "full",
+                  rounded: "full",
+                  transform: "scale(1.125)",
+                  bgGradient: "linear(to-bl, orange.400,yellow.400)",
+                  position: "absolute",
+                  zIndex: -1,
+                  top: 0,
+                  left: 0,
+                }}
+              >
+                YOU
+              </Flex>
             </Stack>
-            <Button
-              onClick={() =>
-                toast({
-                  title: "Requested Successfully.",
-                  description: "We've received your request.",
-                  status: "success",
-                  duration: 5000,
-                  isClosable: true,
-                })
-              }
-              fontFamily={"heading"}
-              mt={8}
-              w={"full"}
-              bgGradient="linear(to-r, red.400,pink.400)"
-              color={"white"}
-              _hover={{
-                bgGradient: "linear(to-r, red.400,pink.400)",
-                boxShadow: "xl",
-              }}
-            >
-              Submit
-            </Button>
-          </Box>
-        </Stack>
-      </Container>
-      <Blur
-        position={"absolute"}
-        top={-10}
-        left={-10}
-        style={{ filter: "blur(70px)" }}
-      />
-    </Box>
+          </Stack>
+          <Stack
+            bg={"gray.50"}
+            rounded={"xl"}
+            p={{ base: 4, sm: 6, md: 8 }}
+            spacing={{ base: 8 }}
+            maxW={{ lg: "lg" }}
+          >
+            <Stack spacing={4}>
+              <Heading
+                color={"gray.800"}
+                lineHeight={1.1}
+                fontSize={{ base: "2xl", sm: "2xl", md: "3xl" }}
+              >
+                Request your favorite Lyrics
+                <Text
+                  as={"span"}
+                  bgGradient="linear(to-r, red.400,pink.400)"
+                  bgClip="text"
+                >
+                  !
+                </Text>
+              </Heading>
+              <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
+                We are here to provide you the wholesome experience to our
+                users. Please request your Favorite Genre, Songs, Albums here.
+                Once we recieve your request we will add it instantly.
+              </Text>
+            </Stack>
+            <Box as={"form"} mt={10}>
+              <Stack spacing={4}>
+                <Input
+                  placeholder="Enter Your Full Name"
+                  bg={"gray.100"}
+                  border={0}
+                  color={"gray.500"}
+                  _placeholder={{
+                    color: "gray.500",
+                  }}
+                />
+                <Input
+                  placeholder="Enter Your Email Address"
+                  bg={"gray.100"}
+                  border={0}
+                  color={"gray.500"}
+                  _placeholder={{
+                    color: "gray.500",
+                  }}
+                />
+                <Select
+                  bg={"gray.100"}
+                  border={0}
+                  color={"gray.500"}
+                  _placeholder={{
+                    color: "gray.500",
+                  }}
+                  placeholder="Select Request Type"
+                >
+                  <option value="option1">Song</option>
+                  <option value="option2">Album</option>
+                </Select>
+              </Stack>
+              <Button
+                onClick={() =>
+                  toast({
+                    title: "Requested Successfully.",
+                    description: "We've received your request.",
+                    status: "success",
+                    duration: 5000,
+                    isClosable: true,
+                  })
+                }
+                fontFamily={"heading"}
+                mt={8}
+                w={"full"}
+                bgGradient="linear(to-r, red.400,pink.400)"
+                color={"white"}
+                _hover={{
+                  bgGradient: "linear(to-r, red.400,pink.400)",
+                  boxShadow: "xl",
+                }}
+              >
+                Submit
+              </Button>
+            </Box>
+          </Stack>
+        </Container>
+        <Blur
+          position={"absolute"}
+          top={-10}
+          left={-10}
+          style={{ filter: "blur(70px)" }}
+        />
+      </Box>
+    </motion.div>
   );
 }
 

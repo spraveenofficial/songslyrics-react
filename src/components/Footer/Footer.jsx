@@ -7,7 +7,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-
+import { useNavigate } from "react-router-dom";
 const Logo = (props) => {
   return (
     <svg
@@ -38,6 +38,7 @@ const ListHeader = ({ children }) => {
 
 export default function LargeWithLogoLeft() {
   const year = new Date();
+  const navigate = useNavigate();
   return (
     <Box
       // borderTop="2px"
@@ -58,27 +59,37 @@ export default function LargeWithLogoLeft() {
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Important Links</ListHeader>
-            <Link href={"#"}>Home</Link>
-            <Link href={"#"}>About</Link>
-            <Link href={"#"}>Contact</Link>
-            <Link href={"#"}>Disclaimer</Link>
-            <Link href={"#"}>Term of Uses</Link>
+            <Link onClick={() => navigate("/")}>Home</Link>
+            <Link onClick={() => navigate("/about")}>About</Link>
+            <Link onClick={() => navigate("/contact")}>Contact</Link>
+            <Link onClick={() => navigate("/disclaimer")}>Disclaimer</Link>
+            <Link onClick={() => navigate("/terms")}>Term of Uses</Link>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Genres</ListHeader>
-            <Link href={"#"}>Hindi</Link>
-            <Link href={"#"}>English</Link>
-            <Link href={"#"}>Bhojpuri</Link>
-            <Link href={"#"}>Tamil</Link>
-            <Link href={"#"}>Kannada</Link>
+            <Link onClick={() => navigate("/genre/hindi")}>Hindi</Link>
+            <Link onClick={() => navigate("/genre/english")}>English</Link>
+            <Link onClick={() => navigate("/genre/bhojpuri")}>Bhojpuri</Link>
+            <Link onClick={() => navigate("/genre/tamil")}>Tamil</Link>
+            <Link onClick={() => navigate("/genre/kannada")}>Kannada</Link>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Artists</ListHeader>
-            <Link href={"#"}>Sonu Nigam</Link>
-            <Link href={"#"}>Lata Mangeshkar</Link>
-            <Link href={"#"}>Jubin Nautiyal</Link>
-            <Link href={"#"}>Arijit Singh</Link>
-            <Link href={"#"}>Sidhu Moose Wala</Link>
+            <Link onClick={() => navigate("/artist/sonu-nigam")}>
+              Sonu Nigam
+            </Link>
+            <Link onClick={() => navigate("/artist/lata-mangeshkar")}>
+              Lata Mangeshkar
+            </Link>
+            <Link onClick={() => navigate("/artist/jubin-nautiyal")}>
+              Jubin Nautiyal
+            </Link>
+            <Link onClick={() => navigate("/artist/arijit-singh")}>
+              Arijit Singh
+            </Link>
+            <Link onClick={() => navigate("/artist/sidhu-moose-wala")}>
+              Sidhu Moose Wala
+            </Link>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Follow Us</ListHeader>
