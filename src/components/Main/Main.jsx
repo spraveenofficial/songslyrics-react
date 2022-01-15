@@ -185,7 +185,7 @@ const Main = () => {
             animate={"show"}
           >
             {genre.map((item) => (
-              <motion.div variants={skillItemVariants}>
+              <motion.div key={item.name} variants={skillItemVariants}>
                 <Cards
                   key={item.name}
                   cover={item.cover}

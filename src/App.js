@@ -4,14 +4,16 @@ import Navbar from "./components/Navbar/Index";
 import Footer from "./components/Footer/Footer";
 import Request from "./pages/Request/Request";
 import About from "./pages/About/About";
+import Error from "./pages/404/404";
 function App() {
   return (
     <Router>
       <Navbar />
       <Routes>
         <Route path="/" exact={true} element={<Home />} />
-        <Route path="/request" exact={true} element={<Request />} />
-        <Route path="/about" exact={true} element={<About />} />
+        <Route path="/request" element={<Request />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/not-found" element={<Error />} />
       </Routes>
       <Footer />
     </Router>

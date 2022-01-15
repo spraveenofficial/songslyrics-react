@@ -53,7 +53,7 @@ export default function Gslr() {
               fontWeight="medium"
               ml="2"
             >
-              Choc
+              SongsLyrics
             </chakra.h1>
           </Flex>
           <HStack display="flex" alignItems="center" spacing={1}>
