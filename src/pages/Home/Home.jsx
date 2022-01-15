@@ -1,4 +1,4 @@
-import Navbar from "../../components/Navbar/Index";
+// import Cookie from "../../components/Cookie/Cookie";
 import Hero from "../../components/Hero/Hero";
 import Main from "../../components/Main/Main";
 import { Helmet } from "react-helmet";
@@ -11,6 +11,7 @@ export default function Home() {
       </Helmet>
       <Hero />
       <Main />
+      {/* <Cookie /> */}
     </div>
   );
 }
