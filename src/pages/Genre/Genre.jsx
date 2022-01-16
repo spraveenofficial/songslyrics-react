@@ -36,6 +36,7 @@ const GenrePage = () => {
   };
   useEffect(() => {
     fetchGenre();
+    window.scrollTo(0, 0)
   }, []);
   return (
     <motion.div initial="initial" animate="enter" variants={variants}>
