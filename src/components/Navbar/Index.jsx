@@ -125,19 +125,19 @@ export default function Gslr() {
                   onClick={mobileNav.onClose}
                 />
 
-                <Button w="full" variant="ghost">
+                <Button onClick={() => navigate("/genre/hindi")} w="full" variant="ghost">
                   Hindi
                 </Button>
-                <Button w="full" variant="ghost">
+                <Button onClick={() => navigate("/genre/english")} w="full" variant="ghost">
                   English
                 </Button>
-                <Button w="full" variant="ghost">
+                <Button onClick={() => navigate("/genre/tamil")} w="full" variant="ghost">
                   Tamil
                 </Button>
-                <Button w="full" variant="ghost">
+                <Button onClick={() => navigate("/genre/kannada")} w="full" variant="ghost">
                   Kannada
                 </Button>
-                <Button w="full" variant="ghost">
+                <Button onClick={() => navigate("/genre/bengali")} w="full" variant="ghost">
                   Bengali
                 </Button>
               </VStack>
