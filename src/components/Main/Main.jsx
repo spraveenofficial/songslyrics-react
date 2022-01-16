@@ -77,7 +77,7 @@ const Main = () => {
       svg_icon: true,
       icon_position: "bottom right",
       info_position: "top left",
-      path: "/genre/gujrati",
+      path: "/genre/gujarati",
     },
     {
       name: "Kannada",

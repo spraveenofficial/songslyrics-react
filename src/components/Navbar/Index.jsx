@@ -24,13 +24,14 @@ export default function Gslr() {
   const navigate = useNavigate();
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();
-  const [isLargerThan1280] = useMediaQuery("(min-width: 780px)");
+  const [isMobile] = useMediaQuery("(min-width: 780px)");
+  const [isTablet] = useMediaQuery("(min-width: 800px)");
   return (
     <React.Fragment>
       <chakra.header
         bg={bg}
         w="full"
-        px={!isLargerThan1280 ? { base: 2, sm: 4 } : { base: 2, sm: 20 }}
+        px={!isMobile ? { base: 2, sm: 4 } : { base: 2, sm: 20 }, !isTablet? { base: 2, sm: 4 }: { base: 2, sm: 20 }}
         py={3}
         shadow="md"
       >

@@ -4,10 +4,22 @@
   /* background: blue; */
   justify-content: space-between;
 }
-
+.min__height{
+  height: 600px;
+}
+.display_flex_center{
+  height: 100%;
+  display: flex;
+  justify-content: center !important;
+  text-align: center !important;
+  align-items: center !important;
+}
 
 @media(max-width:768px){
     .flexing > *{
         width: 100%;
+    }
+    .min__height{
+      height: 400px;
     }
 }
