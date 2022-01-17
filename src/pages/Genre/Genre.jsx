@@ -6,21 +6,36 @@ import { Helmet } from "react-helmet";
 import Spinner from "../../components/Loader/Spinner";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import SongsCard from "../../components/SongsCard/Songs";
 import Baseurl from "../../baseurl";
-const variants = {
-  initial: {
-    opacity: 0,
-    y: 8,
-  },
-  enter: {
+import "./style.scss";
+
+const socialVariants = {
+  hidden: { opacity: 0 },
+  show: {
     opacity: 1,
-    y: 0,
     transition: {
-      duration: 0.9,
-      ease: [0.61, 1, 0.88, 1],
+      duration: 1,
+      type: "tween",
+      staggerChildren: 0.2,
     },
   },
 };
+const socialItemVariants = {
+  hidden: {
+    y: -100,
+    opacity: 0,
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
+// const skillVariants = socialVariants;
+// const skillItemVariants = socialItemVariants;
 const GenrePage = () => {
   const [loading, isLoading] = useState(true);
   const [data, setData] = useState("");
@@ -36,22 +51,54 @@ const GenrePage = () => {
   };
   useEffect(() => {
     fetchGenre();
-    window.scrollTo(0, 0)
-  }, []);
+    window.scrollTo(0, 0);
+  }, [name]);
   return (
-    <motion.div initial="initial" animate="enter" variants={variants}>
+    <motion.div initial="initial" animate="enter">
       <Helmet>
         <title>{name} - SongsLyrics</title>
       </Helmet>
-      <Container mt={"20px"} maxW={"8xl"} height={"600px"}>
+      <Container mt={"20px"} maxW={"8xl"}>
         {loading ? (
           <Spinner />
         ) : data == "Not found" ? (
           <NotFound />
         ) : (
-          <chakra.h1 fontWeight={900} fontSize={{ base: "xl", md: "2xl" }}>
-            Collection of {name.toLocaleUpperCase()} Songs
-          </chakra.h1>
+          <section id="section420" className="skills_section">
+            <chakra.h1
+              fontWeight={900}
+              fontSize={{ base: "2xl", md: "2xl" }}
+              margin="20px 0px"
+            >
+              Top collection
+            </chakra.h1>
+            <div className="container">
+              <motion.div
+                className="grid"
+                variants={socialVariants}
+                initial="hidden"
+                animate={"show"}
+              >
+                {data.length > 1
+                  ? data.map((item) => (
+                      <motion.div key={item._id} variants={socialItemVariants}>
+                        <SongsCard
+                          key={item.songName}
+                          cover={item.cover}
+                          icoPos={item.icon_position}
+                          infoPos={item.info_position}
+                          objIco={item.icon}
+                          name={item.songName}
+                          type={item.type}
+                          rawsvg={item.svg_icon}
+                          path={item.path}
+                        />
+                      </motion.div>
+                    ))
+                  : ""}
+              </motion.div>
+            </div>
+          </section>
         )}
       </Container>
     </motion.div>
