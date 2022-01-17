@@ -1,6 +1,6 @@
 import { chakra, Container } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-
+import { useEffect } from "react";
 const variants = {
   initial: {
     opacity: 0,
@@ -14,8 +14,11 @@ const variants = {
       ease: [0.61, 1, 0.88, 1],
     },
   },
-}
+};
 export default function About() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <motion.div initial="initial" animate="enter" variants={variants}>
       <Container mt={"20px"} maxW={"8xl"} height={"600px"}>
@@ -40,5 +43,4 @@ export default function About() {
       </Container>
     </motion.div>
   );
-};
-
+}

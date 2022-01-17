@@ -31,7 +31,10 @@ export default function Gslr() {
       <chakra.header
         bg={bg}
         w="full"
-        px={!isMobile ? { base: 2, sm: 4 } : { base: 2, sm: 20 }, !isTablet? { base: 2, sm: 4 }: { base: 2, sm: 20 }}
+        px={
+          (!isMobile ? { base: 2, sm: 4 } : { base: 2, sm: 20 },
+          !isTablet ? { base: 2, sm: 4 } : { base: 2, sm: 20 })
+        }
         py={3}
         shadow="md"
       >
@@ -64,10 +67,24 @@ export default function Gslr() {
               color="brand.500"
               display={{ base: "none", md: "inline-flex" }}
             >
-              <Button variant="ghost">Hindi</Button>
-              <Button variant="ghost">English</Button>
-              <Button variant="ghost">Tamil</Button>
-              <Button variant="ghost">Kannada</Button>
+              <Button onClick={() => navigate("/genre/hindi")} variant="ghost">
+                Hindi
+              </Button>
+              <Button
+                onClick={() => navigate("/genre/english")}
+                variant="ghost"
+              >
+                English
+              </Button>
+              <Button onClick={() => navigate("/genre/tamil")} variant="ghost">
+                Tamil
+              </Button>
+              <Button
+                onClick={() => navigate("/genre/kannada")}
+                variant="ghost"
+              >
+                Kannada
+              </Button>
               <Button
                 alignContent={"center"}
                 alignItems={"center"}
@@ -125,19 +142,54 @@ export default function Gslr() {
                   onClick={mobileNav.onClose}
                 />
 
-                <Button onClick={() => navigate("/genre/hindi")} w="full" variant="ghost">
+                <Button
+                  onClick={() => {
+                    navigate("/genre/hindi");
+                    mobileNav.onClose();
+                  }}
+                  w="full"
+                  variant="ghost"
+                >
                   Hindi
                 </Button>
-                <Button onClick={() => navigate("/genre/english")} w="full" variant="ghost">
+                <Button
+                  onClick={() => {
+                    navigate("/genre/english");
+                    mobileNav.onClose();
+                  }}
+                  w="full"
+                  variant="ghost"
+                >
                   English
                 </Button>
-                <Button onClick={() => navigate("/genre/tamil")} w="full" variant="ghost">
+                <Button
+                  onClick={() => {
+                    navigate("/genre/tamil");
+                    mobileNav.onClose();
+                  }}
+                  w="full"
+                  variant="ghost"
+                >
                   Tamil
                 </Button>
-                <Button onClick={() => navigate("/genre/kannada")} w="full" variant="ghost">
+                <Button
+                  onClick={() => {
+                    navigate("/genre/kannada");
+                    mobileNav.onClose();
+                  }}
+                  w="full"
+                  variant="ghost"
+                >
                   Kannada
                 </Button>
-                <Button onClick={() => navigate("/genre/bengali")} w="full" variant="ghost">
+                <Button
+                  onClick={() => {
+                    navigate("/genre/bengali");
+                    mobileNav.onClose();
+                  }}
+                  w="full"
+                  variant="ghost"
+                >
                   Bengali
                 </Button>
               </VStack>

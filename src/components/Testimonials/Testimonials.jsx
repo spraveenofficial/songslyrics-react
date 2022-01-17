@@ -7,7 +7,6 @@ import {
   SimpleGrid,
   useColorModeValue,
 } from "@chakra-ui/react";
-
 const testimonials = [
   {
     name: "Brandon P.",
@@ -54,6 +53,7 @@ function TestmonialCard(props) {
   const { name, role, content, avatar, index } = props;
   return (
     <Flex
+      className="scale__div"
       boxShadow={"lg"}
       maxW={"640px"}
       direction={{ base: "column-reverse", md: "row" }}
