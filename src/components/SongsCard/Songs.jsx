@@ -21,7 +21,7 @@ export default function GenreCard({
       <div className="content__song">
         <div className={`iContainer`}>
           <p className="objName">{name}</p>
-          <p className="objType">Hindi</p>
+          <p className="objType">{type}</p>
         </div>
         <div className="images__c">
             <img src="" alt="" />

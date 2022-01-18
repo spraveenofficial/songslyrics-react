@@ -10,44 +10,43 @@ import SongsCard from "../../components/SongsCard/Songs";
 import Baseurl from "../../baseurl";
 import "./style.scss";
 
-const socialVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      duration: 1,
-      type: "tween",
-      staggerChildren: 0.2,
-    },
-  },
-};
-const socialItemVariants = {
-  hidden: {
-    y: -100,
-    opacity: 0,
-  },
-  show: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 1,
-    },
-  },
-};
-// const skillVariants = socialVariants;
-// const skillItemVariants = socialItemVariants;
 const GenrePage = () => {
+  const socialVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        type: "tween",
+        staggerChildren: 0.2,
+      },
+    },
+  };
+  const socialItemVariants = {
+    hidden: {
+      y: -100,
+      opacity: 0,
+    },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+  const skillVariants = socialVariants;
+  const skillItemVariants = socialItemVariants;
   const [loading, isLoading] = useState(true);
-  const [data, setData] = useState("");
+  const [data, setData] = useState([]);
   const { name } = useParams();
   const fetchGenre = async () => {
     const res = await axios({
       url: `${Baseurl}/genre/${name}`,
       method: "GET",
     });
-    res.data.success || res.data.statusCode === 404
-      ? isLoading(false) || setData(res.data.data)
-      : setData(null);
+    setData(res.data);
+    isLoading(false);
   };
   useEffect(() => {
     fetchGenre();
@@ -60,45 +59,36 @@ const GenrePage = () => {
       </Helmet>
       <Container mt={"20px"} maxW={"8xl"}>
         {loading ? (
-          <Spinner />
-        ) : data == "Not found" ? (
+          <Spinner /> || console.log(data)
+        ) : data != [] && data.success == false ? (
           <NotFound />
         ) : (
-          <section id="section420" className="skills_section">
-            <chakra.h1
-              fontWeight={900}
-              fontSize={{ base: "2xl", md: "2xl" }}
-              margin="20px 0px"
+          <motion.div id="section420" className="skills_section">
+            <motion.div
+              className="grid"
+              variants={skillVariants}
+              initial="hidden"
+              animate={"show"}
             >
-              Top collection
-            </chakra.h1>
-            <div className="container">
-              <motion.div
-                className="grid"
-                variants={socialVariants}
-                initial="hidden"
-                animate={"show"}
-              >
-                {data.length > 1
-                  ? data.map((item) => (
-                      <motion.div key={item._id} variants={socialItemVariants}>
-                        <SongsCard
-                          key={item.songName}
-                          cover={item.cover}
-                          icoPos={item.icon_position}
-                          infoPos={item.info_position}
-                          objIco={item.icon}
-                          name={item.songName}
-                          type={item.type}
-                          rawsvg={item.svg_icon}
-                          path={item.path}
-                        />
-                      </motion.div>
-                    ))
-                  : ""}
-              </motion.div>
-            </div>
-          </section>
+              {data.data
+                ? data.data.map((item) => (
+                    <motion.div key={item._id} variants={skillItemVariants}>
+                      <SongsCard
+                        key={item.name}
+                        cover={item.cover}
+                        icoPos={item.icon_position}
+                        infoPos={item.info_position}
+                        objIco={item.icon}
+                        name={item.songName}
+                        type={item.songLanguage}
+                        rawsvg={item.svg_icon}
+                        path={item.path}
+                      />
+                    </motion.div>
+                  ))
+                : ""}
+            </motion.div>
+          </motion.div>
         )}
       </Container>
     </motion.div>
