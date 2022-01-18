@@ -6,7 +6,7 @@ export default function GenreCard({
   type,
   objIco,
   infoPos,
-  icoPos,
+  year,
   path,
   rawsvg = true,
 }) {
@@ -19,13 +19,16 @@ export default function GenreCard({
       }}
     >
       <div className="content__song">
-        <div className={`iContainer`}>
+        <div className="iContainer">
           <p className="objName">{name}</p>
-          <p className="objType">{type}</p>
+          <div className="data__card">
+            <p className="objType">{type}</p>
+            <p className="objType">{year}</p>
+          </div>
         </div>
-        <div className="images__c">
-            <img src="" alt="" />
-        </div>
+      </div>
+      <div className="ssss">
+        <img src={cover} alt="" />
       </div>
     </div>
   );

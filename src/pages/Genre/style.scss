@@ -25,68 +25,71 @@ $card-Ttype: 500ms cubic-bezier(0.87, 0.07, 0.37, 0.97);
       // -webkit-filter: saturate(0);
       width: $cardSize;
       aspect-ratio: 16 / 8;
-      position: relative;
+      position: sticky;
       border-radius: $borderRadius;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      // align-items: flex-start;
       box-shadow: 0px 0px 40px 6px rgba(0, 0, 0, 0.15);
       transition: transform 300ms;
-      background: var(--clr-bg);
+      // background: red;
+      // background: var(--clr-bg);
       cursor: pointer;
-
       &:hover {
         transform: scale(1.05);
         filter: brightness(0.95);
       }
 
-      .top {
-        top: 0;
-      }
-      .right {
-        right: 0;
-        align-items: flex-end !important;
-      }
-      .left {
-        left: 0;
-        align-items: flex-start !important;
-      }
-      .bottom {
-        bottom: 0;
-      }
-      .cover {
-        position: absolute;
-        height: 100%;
-        object-fit: cover;
-        width: 100%;
-        border-radius: $borderRadius;
-      }
-
       .iContainer {
         z-index: 1;
-        position: absolute;
+        // position: absolute;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
         padding: 0.8rem;
-        cursor: text;
         flex-shrink: 1px;
+        width: 100%;
+        // height: 45%;
+        // justify-content: space-between;
       }
-
+      .data__card {
+        display: flex;
+        gap: 0px 10px;
+      }
+      .data__card > p:nth-child(2) {
+        background: red;
+        padding: 0px 5px;
+        border-radius: 5px;
+      }
+      .ssss {
+        display: flex;
+        -webkit-filter: saturate(0);
+        transition: transform 300ms;
+        // align-items: flex-end;
+        justify-content: flex-end;
+      }
+      .ssss:hover {
+        filter: brightness(0.95);
+        // &:hover {
+          transform: scale(1.15);
+          filter: brightness(0.95);
+        // }
+      }
+      .ssss img {
+        width: 100px;
+        align-items: right;
+      }
       .objName {
         font-weight: 900;
-        // letter-spacing: 1px;
-        font-size: 1.2rem;
-        // width: 50px;
-        // line-height: 1.5rem;
+        letter-spacing: 0.8px;
+        font-size: 20px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
         color: var(--clr-bg);
-        // color: black;
         font-weight: 900;
         cursor: pointer;
-        // background: red;
       }
-
       .objType {
         font-size: 1rem;
         opacity: 0.8;
@@ -113,8 +116,13 @@ $card-Ttype: 500ms cubic-bezier(0.87, 0.07, 0.37, 0.97);
 }
 
 @media (max-width: 767px) {
-  .mContainers {
-    width: 100% !important;
+  .skills_section {
+    .mContainers {
+      width: 100% !important;
+      .ssss:hover {
+        transform: none;
+      }
+    }
   }
   .skills_section {
     .grid {

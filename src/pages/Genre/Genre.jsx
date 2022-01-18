@@ -10,31 +10,31 @@ import SongsCard from "../../components/SongsCard/Songs";
 import Baseurl from "../../baseurl";
 import "./style.scss";
 
+const socialVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+      type: "tween",
+      staggerChildren: 0.2,
+    },
+  },
+};
+const socialItemVariants = {
+  hidden: {
+    y: -100,
+    opacity: 0,
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
 const GenrePage = () => {
-  const socialVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        duration: 1,
-        type: "tween",
-        staggerChildren: 0.2,
-      },
-    },
-  };
-  const socialItemVariants = {
-    hidden: {
-      y: -100,
-      opacity: 0,
-    },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 1,
-      },
-    },
-  };
   const skillVariants = socialVariants;
   const skillItemVariants = socialItemVariants;
   const [loading, isLoading] = useState(true);
@@ -49,6 +49,7 @@ const GenrePage = () => {
     isLoading(false);
   };
   useEffect(() => {
+    isLoading(true)
     fetchGenre();
     window.scrollTo(0, 0);
   }, [name]);
@@ -59,7 +60,7 @@ const GenrePage = () => {
       </Helmet>
       <Container mt={"20px"} maxW={"8xl"}>
         {loading ? (
-          <Spinner /> || console.log(data)
+          <Spinner />
         ) : data != [] && data.success == false ? (
           <NotFound />
         ) : (
@@ -75,13 +76,13 @@ const GenrePage = () => {
                     <motion.div key={item._id} variants={skillItemVariants}>
                       <SongsCard
                         key={item.name}
-                        cover={item.cover}
+                        cover={item.songImage}
                         icoPos={item.icon_position}
                         infoPos={item.info_position}
                         objIco={item.icon}
                         name={item.songName}
                         type={item.songLanguage}
-                        rawsvg={item.svg_icon}
+                        year={item.year}
                         path={item.path}
                       />
                     </motion.div>
