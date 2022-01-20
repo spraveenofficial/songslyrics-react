@@ -7,6 +7,12 @@ $card-Ttype: 500ms cubic-bezier(0.87, 0.07, 0.37, 0.97);
   margin: 40px 0px;
   background: red;
 }
+.lyrics__title{
+  font-size: 1.3rem;
+  margin: 20px 0px;
+  text-transform: capitalize;
+  font-weight: 900;
+}
 .skills_section {
   .container {
     min-height: unset;

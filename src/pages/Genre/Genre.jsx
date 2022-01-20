@@ -49,7 +49,7 @@ const GenrePage = () => {
     isLoading(false);
   };
   useEffect(() => {
-    isLoading(true)
+    isLoading(true);
     fetchGenre();
     window.scrollTo(0, 0);
   }, [name]);
@@ -65,6 +65,7 @@ const GenrePage = () => {
           <NotFound />
         ) : (
           <motion.div id="section420" className="skills_section">
+            <motion.h1 className="lyrics__title">{name} Lyrics</motion.h1>
             <motion.div
               className="grid"
               variants={skillVariants}
