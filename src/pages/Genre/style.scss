@@ -7,11 +7,12 @@ $card-Ttype: 500ms cubic-bezier(0.87, 0.07, 0.37, 0.97);
   margin: 40px 0px;
   background: red;
 }
-.lyrics__title{
-  font-size: 1.3rem;
+.lyrics__title {
+  font-size: 1.5rem;
   margin: 20px 0px;
   text-transform: capitalize;
   font-weight: 900;
+  text-align: center;
 }
 .skills_section {
   .container {
@@ -19,7 +20,7 @@ $card-Ttype: 500ms cubic-bezier(0.87, 0.07, 0.37, 0.97);
     height: min-content !important;
   }
   .grid {
-    width: 100%;
+    // width: 100%;
     $cardSize: 22rem;
     $borderRadius: 7px;
     $mContainerHeight: 37%;
@@ -76,8 +77,8 @@ $card-Ttype: 500ms cubic-bezier(0.87, 0.07, 0.37, 0.97);
       .ssss:hover {
         filter: brightness(0.95);
         // &:hover {
-          transform: scale(1.15);
-          filter: brightness(0.95);
+        transform: scale(1.15);
+        filter: brightness(0.95);
         // }
       }
       .ssss img {
@@ -123,8 +124,13 @@ $card-Ttype: 500ms cubic-bezier(0.87, 0.07, 0.37, 0.97);
 
 @media (max-width: 767px) {
   .skills_section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center !important;
     .mContainers {
-      width: 100% !important;
+      
+      width: 95% !important;
       .ssss:hover {
         transform: none;
       }
@@ -137,6 +143,31 @@ $card-Ttype: 500ms cubic-bezier(0.87, 0.07, 0.37, 0.97);
     }
     .grid > div {
       margin-bottom: 40px;
+    }
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1157px) {
+  .lyrics__title {
+    color: red !important;
+  }
+  .skills_section {
+    .container {
+      min-height: unset;
+      height: min-content !important;
+    }
+    .grid {
+      // width: 100%;
+      $cardSize: 15rem;
+      $borderRadius: 7px;
+      $mContainerHeight: 37%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, $cardSize);
+      place-content: center;
+      gap: 4rem;
+      .mContainers {
+        width: $cardSize;
+      }
     }
   }
 }
