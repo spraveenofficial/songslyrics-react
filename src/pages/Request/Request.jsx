@@ -64,7 +64,6 @@ export default function Request() {
           <title>Request your songs - SongsLyrics</title>
           <meta name="description" content="This is the home page." />
         </Helmet>
-        ;
         <Container
           as={SimpleGrid}
           maxW={"7xl"}

@@ -10,7 +10,7 @@ export default function Search() {
       {/* <Text d={{ base: "none", md: "block" }} mb="8px">
         Search
       </Text> */}
-      <Flex flexDirection={{ md: "row", base: "column" }}>
+      <Flex flexDirection={{ md: "column", base: "column" }}>
         <Input
           value={value}
           onChange={handleChange}
@@ -21,7 +21,7 @@ export default function Search() {
         <Button
           onClick={handleSubmit}
           colorScheme="brand"
-          marginTop={{ base: "10px", md: "0px" }}
+          marginTop={{ base: "10px", md: "5px" }}
         >
           {loading ? <Spinner size="xs" /> : "Search"}
         </Button>

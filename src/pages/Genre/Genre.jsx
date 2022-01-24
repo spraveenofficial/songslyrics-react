@@ -59,7 +59,7 @@ const GenrePage = () => {
       {loading ? (
         <Spinner />
       ) : (
-        <Container maxW={"7xl"}>
+        <Container maxW={"8xl"}>
           <Helmet>
             <title>{name} - SongsLyrics</title>
           </Helmet>
@@ -104,7 +104,7 @@ const GenrePage = () => {
                 </motion.div>
               )}
             </Box>
-            <Box padding={{ base: "0", md: "20px" }}>
+            <Box margin="20px 0px" display={"flex"} flexShrink={10}>
               <Search />
             </Box>
           </SimpleGrid>
