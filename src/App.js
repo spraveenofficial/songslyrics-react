@@ -7,6 +7,7 @@ import About from "./pages/About/About";
 import Error from "./pages/404/404";
 import Genre from "./pages/Genre/Genre";
 import Testing from "./pages/Testing/Testing";
+import Search from "./pages/Search/Search";
 function App() {
   return (
     <Router>
@@ -17,6 +18,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/not-found" element={<Error />} />
         <Route path="/genre/:name" element={<Genre />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/testing" element={<Testing />} />
       </Routes>
       <Footer />
