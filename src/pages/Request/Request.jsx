@@ -17,6 +17,8 @@ import {
 import { Helmet } from "react-helmet";
 import { useToast } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { useRequest } from "../../hooks/request";
+import { useState } from "react";
 
 const variants = {
   initial: {
@@ -57,6 +59,26 @@ const avatars = [
 
 export default function Request() {
   const toast = useToast();
+  const { loading, message, success, request } = useRequest();
+  const [userInput, setUserInput] = useState({
+    name: "",
+    email: "",
+    songName: "",
+  });
+  const handleChange = (e) => {
+    setUserInput({
+      ...userInput,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = () => {
+    request({
+      name: userInput.name,
+      email: userInput.email,
+      songName: userInput.songName,
+      requestType: "request",
+    });
+  };
   return (
     <motion.div initial="initial" animate="enter" variants={variants}>
       <Box position={"relative"}>
@@ -179,6 +201,8 @@ export default function Request() {
                   placeholder="Enter Your Full Name"
                   bg={"gray.100"}
                   border={0}
+                  name="name"
+                  onChange={handleChange}
                   color={"gray.500"}
                   _placeholder={{
                     color: "gray.500",
@@ -187,6 +211,19 @@ export default function Request() {
                 <Input
                   placeholder="Enter Your Email Address"
                   bg={"gray.100"}
+                  name="email"
+                  onChange={handleChange}
+                  border={0}
+                  color={"gray.500"}
+                  _placeholder={{
+                    color: "gray.500",
+                  }}
+                />
+                <Input
+                  placeholder="Enter Name of the Song"
+                  bg={"gray.100"}
+                  name="songName"
+                  onChange={handleChange}
                   border={0}
                   color={"gray.500"}
                   _placeholder={{
@@ -207,20 +244,17 @@ export default function Request() {
                 </Select>
               </Stack>
               <Button
-                onClick={() =>
-                  toast({
-                    title: "Requested Successfully.",
-                    description: "We've received your request.",
-                    status: "success",
-                    duration: 5000,
-                    isClosable: true,
-                  })
-                }
+                onClick={() => handleSubmit()}
                 fontFamily={"heading"}
                 mt={8}
                 w={"full"}
                 bgGradient="linear(to-r, red.400,pink.400)"
                 color={"white"}
+                isLoading={loading}
+                loadingText="Processing...."
+                colorScheme="teal"
+                variant="outline"
+                spinnerPlacement="start"
                 _hover={{
                   bgGradient: "linear(to-r, red.400,pink.400)",
                   boxShadow: "xl",
@@ -231,6 +265,17 @@ export default function Request() {
             </Box>
           </Stack>
         </Container>
+        {!loading &&
+          message &&
+          toast({
+            title: message,
+            description: success
+              ? "We've received your request."
+              : "Failed to send request.",
+            status: success ? "success" : "error",
+            duration: 5000,
+            isClosable: true,
+          })}
         <Blur
           position={"absolute"}
           top={-10}
