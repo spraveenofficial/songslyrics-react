@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "@fontsource/poppins";
-// import theme from './theme'
 import {
   ChakraProvider,
   extendTheme,

@@ -73,7 +73,6 @@ const GenrePage = () => {
                 <NotFound />
               ) : (
                 <motion.div id="section420" className="skills_section">
-                  {/* <motion.h1 className="lyrics__title">{name} Lyrics</motion.h1> */}
                   <motion.div
                     className="grid"
                     variants={skillVariants}
@@ -95,7 +94,7 @@ const GenrePage = () => {
                               name={item.songName}
                               type={item.songLanguage}
                               year={item.year}
-                              path={item.path}
+                              path={item.url}
                             />
                           </motion.div>
                         ))

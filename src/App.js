@@ -8,12 +8,14 @@ import Error from "./pages/404/404";
 import Genre from "./pages/Genre/Genre";
 import Testing from "./pages/Testing/Testing";
 import Search from "./pages/Search/Search";
+import Lyrics from "./pages/Lyrics/index";
 function App() {
   return (
     <Router>
       <Navbar />
       <Routes>
         <Route path="/" exact={true} element={<Home />} />
+        <Route path="/lyrics" exact={true} element={<Lyrics />} />
         <Route path="/request" element={<Request />} />
         <Route path="/about" element={<About />} />
         <Route path="/not-found" element={<Error />} />

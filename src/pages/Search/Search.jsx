@@ -37,7 +37,7 @@ export default function Search() {
   };
   const skillVariants = socialVariants;
   const skillItemVariants = socialItemVariants;
-  const [loading, setloading] = useState(true);
+  const [loading, setloading] = useState(false);
   const [data, setData] = useState([]);
   return (
     <>

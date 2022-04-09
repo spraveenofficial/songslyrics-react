@@ -132,11 +132,19 @@ $card-Ttype: 500ms cubic-bezier(0.87, 0.07, 0.37, 0.97);
 
 @media (max-width: 767px) {
   .skills_section {
+    align-items: center;
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(95%, 1fr));
+    }
     .mContainers {
-      
-      width: 95% !important;
+      background: red;
+      min-width: 95% ;
+      &:hover {
+        transform: scale(1.05);
+        filter: brightness(0.95);
+      }
       .ssss:hover {
-        transform: none;
+       transform: none !important;
       }
     }
   }

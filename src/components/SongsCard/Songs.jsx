@@ -15,7 +15,7 @@ export default function GenreCard({
     <div
       className="mContainers"
       onClick={() => {
-        navigate(path);
+        navigate(`/lyrics/${path}`);
       }}
     >
       <div className="content__song">
